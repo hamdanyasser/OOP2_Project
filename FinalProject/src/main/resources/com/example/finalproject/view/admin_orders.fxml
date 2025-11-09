@@ -6,56 +6,125 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.finalproject.controller.AdminOrdersController"
-            prefWidth="900" prefHeight="600"
+            prefWidth="1200" prefHeight="750"
             stylesheets="@style.css">
 
-    <!-- 🔹 Top bar -->
+    <!-- Modern Admin Navigation Bar -->
     <top>
-        <HBox spacing="20" style="-fx-background-color:#0078D7;-fx-padding:12;">
-            <Label text="📦 Orders Management"
-                   style="-fx-text-fill:white;-fx-font-size:20;-fx-font-weight:bold;" />
-            <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="⬅ Back to Products" onAction="#goProducts"
-                    style="-fx-background-color:white;-fx-text-fill:#0078D7;-fx-font-weight:bold;"/>
-            <Button text="Logout" onAction="#logout"
-                    style="-fx-background-color:#d9534f;-fx-text-fill:white;-fx-font-weight:bold;"/>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="navbar">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="📦" style="-fx-font-size: 28px;"/>
+                <Label text="Order Management" styleClass="navbar-title"/>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Quick Actions -->
+            <Button text="🛒 Products"
+                   onAction="#goProducts"
+                   style="-fx-background-color: rgba(255,255,255,0.2);"/>
+
+            <Button text="📊 Reports"
+                   onAction="#onViewReports"
+                   style="-fx-background-color: rgba(255,255,255,0.2);"/>
+
+            <Button text="🚪 Logout"
+                   onAction="#logout"
+                   style="-fx-background-color: rgba(245,101,101,0.3); -fx-text-fill: white;"/>
         </HBox>
     </top>
 
-    <!-- 🔹 Center table -->
+    <!-- Admin Content -->
     <center>
-        <VBox spacing="15" alignment="CENTER" style="-fx-padding:20;">
-            <!-- 🔍 Search and Filter Bar -->
-            <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label text="🔍 Search:"/>
-                <TextField fx:id="searchField" promptText="Enter Order ID or User ID" prefWidth="180"/>
-                <Label text="Filter by Status:"/>
-                <ComboBox fx:id="statusFilter" prefWidth="150"/>
-                <Button text="Apply Filter" onAction="#onApplyFilter"/>
-                <Button text="Reset" onAction="#onResetFilter"/>
-            </HBox>
+        <VBox spacing="24" styleClass="admin-container" style="-fx-padding: 32;">
 
-            <TableView fx:id="orderTable" prefWidth="850" prefHeight="450">
-                <columns>
-                    <TableColumn fx:id="colId" text="Order ID" prefWidth="80"/>
-                    <TableColumn fx:id="colUser" text="User ID" prefWidth="100"/>
-                    <TableColumn fx:id="colTotal" text="Total ($)" prefWidth="150"/>
-                    <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
-                    <TableColumn fx:id="colDate" text="Created At" prefWidth="250"/>
-                </columns>
-            </TableView>
+            <!-- Header & Filters -->
+            <VBox spacing="16">
+                <!-- Header -->
+                <HBox spacing="16" alignment="CENTER_LEFT">
+                    <VBox spacing="8">
+                        <Label text="Orders Overview"
+                               style="-fx-font-size: 28px; -fx-font-weight: 700; -fx-text-fill: #2d3748;"/>
+                        <Label text="Track and manage customer orders"
+                               style="-fx-font-size: 15px; -fx-text-fill: #718096;"/>
+                    </VBox>
+                </HBox>
 
-            <HBox spacing="15" alignment="CENTER">
-                <Button text="✅ Mark Delivered" onAction="#onDeliver" />
-                <Button text="🗑 Delete Order" onAction="#onDelete" />
-                <Button text="📊 View Reports" onAction="#onViewReports"/>
-                <Button text="⬇ Export CSV" onAction="#onExportCSV" />
-                <Button text="📄 Download Invoice" onAction="#onDownloadInvoice"/>
-                <Button text="🧾 Export PDF" onAction="#onExportPDF" />
-                <Button text="📦 View Items" onAction="#onViewItems" />
-            </HBox>
+                <!-- Search & Filter Bar -->
+                <HBox spacing="12" alignment="CENTER_LEFT" styleClass="white-card"
+                      style="-fx-padding: 16;">
+                    <Label text="🔍" style="-fx-font-size: 18px;"/>
+                    <TextField fx:id="searchField"
+                              promptText="Search by Order ID or User ID..."
+                              styleClass="text-field"
+                              prefWidth="250"/>
+
+                    <Label text="Status:" style="-fx-font-size: 14px; -fx-font-weight: 600;"/>
+                    <ComboBox fx:id="statusFilter" prefWidth="150"/>
+
+                    <Button text="Apply"
+                           onAction="#onApplyFilter"
+                           styleClass="button-secondary"
+                           prefHeight="40"/>
+
+                    <Button text="Reset"
+                           onAction="#onResetFilter"
+                           prefHeight="40"/>
+                </HBox>
+            </VBox>
+
+            <!-- Orders Table Card -->
+            <VBox spacing="16" styleClass="white-card">
+                <Label text="All Orders"
+                       styleClass="section-title"
+                       style="-fx-font-size: 20px;"/>
+
+                <TableView fx:id="orderTable" prefHeight="450" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="colId" text="Order #" prefWidth="100"/>
+                        <TableColumn fx:id="colUser" text="Customer ID" prefWidth="120"/>
+                        <TableColumn fx:id="colTotal" text="Total Amount" prefWidth="140"/>
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
+                        <TableColumn fx:id="colDate" text="Order Date" prefWidth="200"/>
+                    </columns>
+                </TableView>
+
+                <!-- Action Buttons Row -->
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Button text="✅ Mark Delivered"
+                           onAction="#onDeliver"
+                           styleClass="button-success"
+                           prefHeight="45"/>
+
+                    <Button text="📦 View Items"
+                           onAction="#onViewItems"
+                           styleClass="button-secondary"
+                           prefHeight="45"/>
+
+                    <Button text="📄 Invoice"
+                           onAction="#onDownloadInvoice"
+                           styleClass="button-secondary"
+                           prefHeight="45"/>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Button text="📊 Export CSV"
+                           onAction="#onExportCSV"
+                           prefHeight="45"/>
+
+                    <Button text="🧾 Export PDF"
+                           onAction="#onExportPDF"
+                           prefHeight="45"/>
+
+                    <Button text="🗑️ Delete"
+                           onAction="#onDelete"
+                           styleClass="button-danger"
+                           prefHeight="45"/>
+                </HBox>
+
+            </VBox>
+
         </VBox>
-
     </center>
 
 </BorderPane>

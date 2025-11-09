@@ -1,90 +1,765 @@
-/* 🌐 Global App Theme - style.css */
+/* ═══════════════════════════════════════════════════════════════════
+   🎨 MODERN SHOPEASE UI THEME - Complete Design System
+   ═══════════════════════════════════════════════════════════════════ */
 
-/* Base Background */
+/* ═══════════════════════════════════════════════════════════════════
+   🌍 ROOT & GLOBAL STYLES
+   ═══════════════════════════════════════════════════════════════════ */
+
 .root {
-    -fx-font-family: "Segoe UI", Arial, sans-serif;
-    -fx-background-color: #f5f5f5;
+    -fx-font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -fx-font-smoothing-type: gray;
 }
 
-/* Auth Card (used for login/register) */
+/* Modern Background Gradient */
+.modern-background {
+    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.light-background {
+    -fx-background-color: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎴 CARDS & CONTAINERS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Modern Glass Card */
 .auth-card {
-    -fx-background-color: white;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 4);
-    -fx-padding: 30;
-}
-
-/* Title labels (Login, Register, etc.) */
-.title-label {
-    -fx-font-size: 22px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #333;
-}
-
-/* Text fields */
-.text-field, .password-field {
-    -fx-pref-width: 280;
-    -fx-background-radius: 6;
-    -fx-border-radius: 6;
-    -fx-border-color: #ccc;
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 30, 0, 0, 10);
+    -fx-padding: 40;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
     -fx-border-width: 1;
-    -fx-padding: 6;
 }
 
-/* Buttons */
-.button {
-    -fx-background-color: #0078D7;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 6;
+.glass-card {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0, 0, 5);
+    -fx-padding: 20;
+}
+
+/* Product Card */
+.product-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 15, 0, 0, 5);
+    -fx-padding: 16;
     -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+}
+
+.product-card:hover {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.4), 25, 0, 0, 10);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-border-color: #667eea;
+}
+
+/* Modern White Card */
+.white-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 20, 0, 0, 5);
+    -fx-padding: 24;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   📝 TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════════ */
+
+.title-label {
+    -fx-font-size: 32px;
+    -fx-font-weight: 700;
+    -fx-text-fill: linear-gradient(to right, #667eea, #764ba2);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
+}
+
+.subtitle-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #4a5568;
+}
+
+.section-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #2d3748;
+}
+
+.card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2d3748;
+}
+
+.body-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #4a5568;
+}
+
+.caption-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: #718096;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🔘 BUTTONS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.button {
+    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-font-size: 14px;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-cursor: hand;
+    -fx-padding: 12 24 12 24;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.4), 10, 0, 0, 4);
+    -fx-border-width: 0;
 }
 
 .button:hover {
-    -fx-background-color: #005a9e;
+    -fx-background-color: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.6), 15, 0, 0, 6);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
 }
 
-/* Hyperlinks */
+.button:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.3), 5, 0, 0, 2);
+}
+
+/* Secondary Button */
+.button-secondary {
+    -fx-background-color: white;
+    -fx-text-fill: #667eea;
+    -fx-font-weight: 600;
+    -fx-font-size: 14px;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-cursor: hand;
+    -fx-padding: 12 24 12 24;
+    -fx-border-color: #667eea;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
+}
+
+.button-secondary:hover {
+    -fx-background-color: #f7fafc;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.3), 10, 0, 0, 4);
+}
+
+/* Success Button */
+.button-success {
+    -fx-background-color: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(72, 187, 120, 0.4), 10, 0, 0, 4);
+}
+
+.button-success:hover {
+    -fx-background-color: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+    -fx-effect: dropshadow(gaussian, rgba(72, 187, 120, 0.6), 15, 0, 0, 6);
+}
+
+/* Danger Button */
+.button-danger {
+    -fx-background-color: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(245, 101, 101, 0.4), 10, 0, 0, 4);
+}
+
+.button-danger:hover {
+    -fx-background-color: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    -fx-effect: dropshadow(gaussian, rgba(245, 101, 101, 0.6), 15, 0, 0, 6);
+}
+
+/* Icon Button */
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #667eea;
+    -fx-font-size: 20px;
+    -fx-cursor: hand;
+    -fx-padding: 8;
+    -fx-background-radius: 8;
+}
+
+.icon-button:hover {
+    -fx-background-color: rgba(102, 126, 234, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   📥 INPUT FIELDS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.text-field, .password-field, .text-area {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 2;
+    -fx-padding: 14 16 14 16;
+    -fx-font-size: 14px;
+    -fx-text-fill: #2d3748;
+    -fx-prompt-text-fill: #a0aec0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+}
+
+.text-field:focused, .password-field:focused, .text-area:focused {
+    -fx-border-color: #667eea;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.3), 10, 0, 0, 4);
+    -fx-background-color: white;
+}
+
+.text-field:hover, .password-field:hover, .text-area:hover {
+    -fx-border-color: #cbd5e0;
+}
+
+/* Modern Search Field */
+.search-field {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+    -fx-padding: 10 20 10 20;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 3);
+}
+
+.search-field:focused {
+    -fx-border-color: white;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 15, 0, 0, 5);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🔗 HYPERLINKS
+   ═══════════════════════════════════════════════════════════════════ */
+
 .hyperlink {
-    -fx-font-size: 13px;
-    -fx-text-fill: #0078D7;
+    -fx-font-size: 14px;
+    -fx-text-fill: #667eea;
+    -fx-underline: false;
+    -fx-cursor: hand;
+    -fx-padding: 4 8 4 8;
+    -fx-background-radius: 6;
 }
 
 .hyperlink:hover {
     -fx-underline: true;
+    -fx-text-fill: #5568d3;
+    -fx-background-color: rgba(102, 126, 234, 0.05);
 }
 
-/* Error message label */
-.error-label {
-    -fx-text-fill: red;
-    -fx-font-size: 13px;
+.hyperlink:visited {
+    -fx-text-fill: #764ba2;
 }
 
-.root {
-    -fx-font-family: "Segoe UI", sans-serif;
-    -fx-background-color: #f4f6fa;
-}
-
-.button {
-    -fx-background-color: #0078D7;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 6;
-}
-
-.button:hover {
-    -fx-background-color: #005a9e;
-}
-
-.title-label {
-    -fx-font-size: 22px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #0078D7;
-}
+/* ═══════════════════════════════════════════════════════════════════
+   📊 TABLES
+   ═══════════════════════════════════════════════════════════════════ */
 
 .table-view {
     -fx-background-color: white;
-    -fx-border-color: #ddd;
-    -fx-border-radius: 6;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 15, 0, 0, 5);
 }
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to bottom, #f7fafc 0%, #edf2f7 100%);
+    -fx-text-fill: #2d3748;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
+    -fx-padding: 16 12 16 12;
+    -fx-border-color: #e2e8f0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #f7fafc 0%, #edf2f7 100%);
+    -fx-background-radius: 16 16 0 0;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #2d3748;
+    -fx-font-size: 13px;
+    -fx-padding: 12 8 12 8;
+    -fx-border-color: transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f7fafc;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgba(102, 126, 234, 0.15);
+    -fx-text-fill: #2d3748;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: rgba(102, 126, 234, 0.08);
+    -fx-cursor: hand;
+}
+
+.table-view .table-cell {
+    -fx-padding: 8 12 8 12;
+    -fx-alignment: center-left;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎛️ CHOICE BOX & COMBO BOX
+   ═══════════════════════════════════════════════════════════════════ */
+
+.choice-box, .combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 2;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 5, 0, 0, 2);
+}
+
+.choice-box:hover, .combo-box:hover {
+    -fx-border-color: #cbd5e0;
+}
+
+.choice-box:focused, .combo-box:focused {
+    -fx-border-color: #667eea;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.3), 10, 0, 0, 4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   📜 SCROLL PANE
+   ═══════════════════════════════════════════════════════════════════ */
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-padding: 0 4 0 4;
+}
+
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-padding: 4 0 4 0;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgba(102, 126, 234, 0.3);
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: rgba(102, 126, 234, 0.5);
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: rgba(102, 126, 234, 0.7);
+}
+
+.scroll-bar .track {
+    -fx-background-color: rgba(0, 0, 0, 0.05);
+    -fx-background-radius: 8;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎨 LABELS & BADGES
+   ═══════════════════════════════════════════════════════════════════ */
+
+.error-label {
+    -fx-text-fill: #e53e3e;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-padding: 8 12 8 12;
+    -fx-background-color: rgba(245, 101, 101, 0.1);
+    -fx-background-radius: 8;
+}
+
+.success-label {
+    -fx-text-fill: #38a169;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-padding: 8 12 8 12;
+    -fx-background-color: rgba(72, 187, 120, 0.1);
+    -fx-background-radius: 8;
+}
+
+.warning-label {
+    -fx-text-fill: #d69e2e;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-padding: 8 12 8 12;
+    -fx-background-color: rgba(214, 158, 46, 0.1);
+    -fx-background-radius: 8;
+}
+
+.badge {
+    -fx-background-color: #667eea;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 12;
+}
+
+.badge-success {
+    -fx-background-color: #48bb78;
+}
+
+.badge-danger {
+    -fx-background-color: #f56565;
+}
+
+.badge-warning {
+    -fx-background-color: #ed8936;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🏠 NAVIGATION BAR
+   ═══════════════════════════════════════════════════════════════════ */
+
+.navbar {
+    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -fx-padding: 16 24 16 24;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 15, 0, 0, 5);
+}
+
+.navbar-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}
+
+.navbar .button {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-background-radius: 10;
+    -fx-padding: 10 18 10 18;
+    -fx-effect: none;
+}
+
+.navbar .button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 3);
+}
+
+.navbar .search-field {
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.7);
+    -fx-text-fill: white;
+}
+
+.navbar .search-field:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ⚡ ANIMATIONS & TRANSITIONS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { -fx-opacity: 0; }
+    to { -fx-opacity: 1; }
+}
+
+.fade-in {
+    -fx-animation: fadeIn 0.5s ease-in;
+}
+
+/* Slide In Animation */
+@keyframes slideInUp {
+    from {
+        -fx-opacity: 0;
+        -fx-translate-y: 30;
+    }
+    to {
+        -fx-opacity: 1;
+        -fx-translate-y: 0;
+    }
+}
+
+.slide-in-up {
+    -fx-animation: slideInUp 0.6s ease-out;
+}
+
+/* Scale Animation */
+@keyframes scaleIn {
+    from {
+        -fx-scale-x: 0.9;
+        -fx-scale-y: 0.9;
+        -fx-opacity: 0;
+    }
+    to {
+        -fx-scale-x: 1;
+        -fx-scale-y: 1;
+        -fx-opacity: 1;
+    }
+}
+
+.scale-in {
+    -fx-animation: scaleIn 0.4s ease-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% { -fx-scale-x: 1; -fx-scale-y: 1; }
+    50% { -fx-scale-x: 1.05; -fx-scale-y: 1.05; }
+    100% { -fx-scale-x: 1; -fx-scale-y: 1; }
+}
+
+.pulse {
+    -fx-animation: pulse 0.6s ease-in-out;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎯 SPECIAL COMPONENTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Price Label */
+.price-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #667eea;
+}
+
+.old-price-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #a0aec0;
+    -fx-strikethrough: true;
+}
+
+.discount-label {
+    -fx-background-color: #f56565;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 4 8 4 8;
+    -fx-background-radius: 6;
+}
+
+/* Stock Badge */
+.in-stock {
+    -fx-background-color: rgba(72, 187, 120, 0.15);
+    -fx-text-fill: #38a169;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 12;
+}
+
+.low-stock {
+    -fx-background-color: rgba(237, 137, 54, 0.15);
+    -fx-text-fill: #dd6b20;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 12;
+}
+
+.out-of-stock {
+    -fx-background-color: rgba(245, 101, 101, 0.15);
+    -fx-text-fill: #e53e3e;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 12;
+}
+
+/* Rating Stars */
+.rating-container {
+    -fx-spacing: 4;
+}
+
+.star-filled {
+    -fx-text-fill: #f6ad55;
+    -fx-font-size: 16px;
+}
+
+.star-empty {
+    -fx-text-fill: #e2e8f0;
+    -fx-font-size: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎪 MODAL & POPUP
+   ═══════════════════════════════════════════════════════════════════ */
+
+.modal-overlay {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 40, 0, 0, 10);
+    -fx-padding: 32;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   📱 RESPONSIVE UTILITIES
+   ═══════════════════════════════════════════════════════════════════ */
+
+.spacing-xs { -fx-spacing: 4; }
+.spacing-sm { -fx-spacing: 8; }
+.spacing-md { -fx-spacing: 16; }
+.spacing-lg { -fx-spacing: 24; }
+.spacing-xl { -fx-spacing: 32; }
+
+.padding-xs { -fx-padding: 4; }
+.padding-sm { -fx-padding: 8; }
+.padding-md { -fx-padding: 16; }
+.padding-lg { -fx-padding: 24; }
+.padding-xl { -fx-padding: 32; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎨 COLOR UTILITIES
+   ═══════════════════════════════════════════════════════════════════ */
+
+.text-primary { -fx-text-fill: #667eea; }
+.text-secondary { -fx-text-fill: #718096; }
+.text-success { -fx-text-fill: #48bb78; }
+.text-danger { -fx-text-fill: #f56565; }
+.text-warning { -fx-text-fill: #ed8936; }
+.text-dark { -fx-text-fill: #2d3748; }
+.text-light { -fx-text-fill: #a0aec0; }
+.text-white { -fx-text-fill: white; }
+
+.bg-gradient-primary {
+    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bg-gradient-success {
+    -fx-background-color: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.bg-gradient-danger {
+    -fx-background-color: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+}
+
+.bg-white { -fx-background-color: white; }
+.bg-gray-light { -fx-background-color: #f7fafc; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎬 LOADING & PROGRESS
+   ═══════════════════════════════════════════════════════════════════ */
+
+.progress-bar {
+    -fx-background-color: #e2e8f0;
+    -fx-background-radius: 10;
+}
+
+.progress-bar .bar {
+    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -fx-background-radius: 10;
+}
+
+.spinner {
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 3;
+    -fx-border-radius: 50%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎯 CUSTOM PRODUCT GRID
+   ═══════════════════════════════════════════════════════════════════ */
+
+.product-grid {
+    -fx-background-color: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    -fx-padding: 32;
+}
+
+.product-image {
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 3);
+}
+
+.product-name {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #2d3748;
+}
+
+.product-category {
+    -fx-font-size: 12px;
+    -fx-text-fill: #718096;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   🎨 ADMIN DASHBOARD
+   ═══════════════════════════════════════════════════════════════════ */
+
+.admin-container {
+    -fx-background-color: #f7fafc;
+}
+
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 15, 0, 0, 5);
+    -fx-padding: 24;
+}
+
+.stat-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.2), 20, 0, 0, 8);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.stat-value {
+    -fx-font-size: 32px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #667eea;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #718096;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   END OF STYLESHEET
+   ═══════════════════════════════════════════════════════════════════ */

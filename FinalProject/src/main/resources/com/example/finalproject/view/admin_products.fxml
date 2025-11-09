@@ -4,48 +4,100 @@
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
+<BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.finalproject.controller.AdminProductsController"
-            prefWidth="900" prefHeight="600"
+            prefWidth="1200" prefHeight="750"
             stylesheets="@style.css">
 
-    <VBox spacing="10"
-          AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
-          AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
-        <padding>
-            <Insets top="10" right="10" bottom="10" left="10"/>
-        </padding>
+    <!-- Modern Admin Navigation Bar -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="navbar">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="🛒" style="-fx-font-size: 28px;"/>
+                <Label text="Product Management" styleClass="navbar-title"/>
+            </HBox>
 
-        <!-- 🛒 Title -->
-        <Label text="🛒 Product Management" styleClass="title-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
 
-        <!-- 🔹 Toolbar with Orders button -->
-        <HBox spacing="10" alignment="CENTER_LEFT">
-            <Button text="Add Product" onAction="#onAdd" />
-            <Button text="Edit Product" onAction="#onEdit" />
-            <Button text="Delete Product" onAction="#onDelete" />
-            <Button text="⭐ Manage Reviews" onAction="#onManageReviews" />
-            <!-- ✅ New Orders Button -->
-            <Button text="💸 Manage Promotions" onAction="#onPromotions"/>
+            <!-- Quick Actions -->
+            <Button text="📦 Orders"
+                   onAction="#onOrders"
+                   style="-fx-background-color: rgba(255,255,255,0.2);"/>
 
-            <Button text="View Orders" onAction="#onOrders" />
+            <Button text="⭐ Reviews"
+                   onAction="#onManageReviews"
+                   style="-fx-background-color: rgba(255,255,255,0.2);"/>
 
-            <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="Logout" onAction="#onLogout" />
+            <Button text="💸 Promotions"
+                   onAction="#onPromotions"
+                   style="-fx-background-color: rgba(255,255,255,0.2);"/>
+
+            <Button text="🚪 Logout"
+                   onAction="#onLogout"
+                   style="-fx-background-color: rgba(245,101,101,0.3); -fx-text-fill: white;"/>
         </HBox>
+    </top>
 
-        <!-- 📋 Table -->
-        <TableView fx:id="table" prefHeight="500">
-            <columns>
-                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
-                <TableColumn fx:id="colName" text="Name" prefWidth="200"/>
-                <TableColumn fx:id="colCategory" text="Category" prefWidth="150"/>
-                <TableColumn fx:id="colPrice" text="Price" prefWidth="100"/>
-                <TableColumn fx:id="colStock" text="Stock" prefWidth="100"/>
-                <TableColumn fx:id="colImage" text="Image" prefWidth="100"/>
-            </columns>
-        </TableView>
+    <!-- Admin Content -->
+    <center>
+        <VBox spacing="24" styleClass="admin-container" style="-fx-padding: 32;">
 
-        <Label fx:id="msgLabel" styleClass="error-label"/>
-    </VBox>
-</AnchorPane>
+            <!-- Header & Actions -->
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <VBox spacing="8">
+                    <Label text="Products Overview"
+                           style="-fx-font-size: 28px; -fx-font-weight: 700; -fx-text-fill: #2d3748;"/>
+                    <Label text="Manage your product inventory"
+                           style="-fx-font-size: 15px; -fx-text-fill: #718096;"/>
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <!-- Action Buttons -->
+                <HBox spacing="12">
+                    <Button text="➕ Add Product"
+                           onAction="#onAdd"
+                           styleClass="button-success"
+                           prefHeight="45"
+                           prefWidth="140"/>
+
+                    <Button text="✏️ Edit"
+                           onAction="#onEdit"
+                           styleClass="button-secondary"
+                           prefHeight="45"
+                           prefWidth="100"/>
+
+                    <Button text="🗑️ Delete"
+                           onAction="#onDelete"
+                           styleClass="button-danger"
+                           prefHeight="45"
+                           prefWidth="100"/>
+                </HBox>
+            </HBox>
+
+            <!-- Products Table Card -->
+            <VBox spacing="16" styleClass="white-card">
+                <Label text="All Products"
+                       styleClass="section-title"
+                       style="-fx-font-size: 20px;"/>
+
+                <TableView fx:id="table" prefHeight="500" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="80"/>
+                        <TableColumn fx:id="colName" text="Product Name" prefWidth="250"/>
+                        <TableColumn fx:id="colCategory" text="Category" prefWidth="180"/>
+                        <TableColumn fx:id="colPrice" text="Price ($)" prefWidth="120"/>
+                        <TableColumn fx:id="colStock" text="Stock" prefWidth="100"/>
+                        <TableColumn fx:id="colImage" text="Image Path" prefWidth="200"/>
+                    </columns>
+                </TableView>
+
+                <!-- Message Label -->
+                <Label fx:id="msgLabel" styleClass="success-label" visible="false" managed="false"/>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
