@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalproject.controller.WishlistController"
+            prefWidth="800" prefHeight="600">
+
+    <top>
+        <HBox spacing="10" style="-fx-background-color:#0078D7; -fx-padding:10;">
+            <Label text="❤️ My Wishlist" style="-fx-font-size:20px; -fx-text-fill:white; -fx-font-weight:bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="⬅ Back" onAction="#onBack"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <FlowPane fx:id="wishlistGrid" hgap="15" vgap="15"
+                      alignment="CENTER" style="-fx-padding:15;"/>
+        </ScrollPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.finalproject.controller.OrderItemsPopupController"
+      spacing="15" alignment="CENTER" style="-fx-padding:20;">
+
+    <!-- Title -->
+    <Label fx:id="orderTitle" text="Order #0 - Items"
+           style="-fx-font-size:16; -fx-font-weight:bold;" />
+
+    <!-- Table of Items -->
+    <TableView fx:id="itemTable" prefWidth="600" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="colProduct" text="Product" prefWidth="200"/>
+            <TableColumn fx:id="colQty" text="Quantity" prefWidth="100"/>
+            <TableColumn fx:id="colPrice" text="Price ($)" prefWidth="150"/>
+            <TableColumn fx:id="colSubtotal" text="Subtotal ($)" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <!-- Summary Section -->
+    <HBox spacing="30" alignment="CENTER_RIGHT">
+        <Label text="Total:" style="-fx-font-weight:bold; -fx-font-size:14;"/>
+        <Label fx:id="totalLabel" style="-fx-text-fill:#0078D7; -fx-font-size:14;"/>
+
+        <Label text="Status:" style="-fx-font-weight:bold; -fx-font-size:14;"/>
+        <Label fx:id="statusLabel" style="-fx-font-size:14; -fx-text-fill:#333;"/>
+    </HBox>
+
+    <!-- Close Button -->
+    <Button text="Close" onAction="#onClose" prefWidth="150"/>
+</VBox>

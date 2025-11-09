@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalproject.controller.CheckoutController"
+            prefWidth="800" prefHeight="600"
+            stylesheets="@style.css">
+
+    <VBox alignment="CENTER" spacing="25"
+          AnchorPane.topAnchor="20"
+          AnchorPane.bottomAnchor="20"
+          AnchorPane.leftAnchor="20"
+          AnchorPane.rightAnchor="20">
+
+        <!-- Title -->
+        <Label text="🧾 Checkout" styleClass="title-label"/>
+
+        <!-- Order Summary Box -->
+        <VBox spacing="15" styleClass="auth-card" maxWidth="400">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Review Your Order" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <Label fx:id="totalLabel" text="Total: $0.00" style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+
+            <Button text="Confirm Order ✅"
+                    onAction="#onConfirmOrder"
+                    prefWidth="200"/>
+
+            <Button text="Back to Shop"
+                    onAction="#onBack"
+                    prefWidth="200"
+                    style="-fx-background-color: gray; -fx-text-fill: white;"/>
+        </VBox>
+    </VBox>
+</AnchorPane>

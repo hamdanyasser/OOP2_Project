@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalproject.controller.AdminPromotionsController"
+            prefWidth="900" prefHeight="600">
+
+    <top>
+        <HBox spacing="10" style="-fx-padding: 10; -fx-background-color: #0078D7;">
+            <Label text="📢 Manage Promotions" style="-fx-font-size: 20; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="⬅ Back" onAction="#onBack"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <TableView fx:id="table" prefHeight="400">
+                <columns>
+                    <TableColumn text="ID" fx:id="colId" prefWidth="50"/>
+                    <TableColumn text="Product ID" fx:id="colProductId" prefWidth="100"/>
+                    <TableColumn text="Category" fx:id="colCategory" prefWidth="150"/>
+                    <TableColumn text="Discount (%)" fx:id="colDiscount" prefWidth="120"/>
+                    <TableColumn text="Start Date" fx:id="colStart" prefWidth="120"/>
+                    <TableColumn text="End Date" fx:id="colEnd" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="➕ Add" onAction="#onAdd"/>
+                <Button text="❌ Delete" onAction="#onDelete"/>
+            </HBox>
+
+            <Label fx:id="msgLabel" style="-fx-text-fill: red;"/>
+        </VBox>
+    </center>
+</BorderPane>

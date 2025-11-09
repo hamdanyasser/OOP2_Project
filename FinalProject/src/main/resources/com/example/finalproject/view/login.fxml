@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.example.finalproject.controller.LoginController"
+           prefWidth="800" prefHeight="600"
+           stylesheets="@style.css">
+
+    <VBox alignment="CENTER" spacing="20">
+        <VBox alignment="CENTER" spacing="12" maxWidth="350" styleClass="auth-card">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <Label text="🔐 Login" styleClass="title-label"/>
+
+            <TextField fx:id="emailField" promptText="Email" styleClass="text-field"/>
+            <PasswordField fx:id="passwordField" promptText="Password" styleClass="password-field"/>
+
+            <Button text="Login" onAction="#onLogin" prefWidth="200" />
+            <Hyperlink text="Create Account" onAction="#goRegister"/>
+            <Hyperlink text="Forgot Password?" onAction="#onForgotPassword"/>
+            <Label fx:id="msgLabel" styleClass="error-label"/>
+        </VBox>
+    </VBox>
+
+</StackPane>

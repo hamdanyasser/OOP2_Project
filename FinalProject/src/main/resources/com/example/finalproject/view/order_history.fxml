@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalproject.controller.OrderHistoryController"
+            prefWidth="900" prefHeight="600"
+            stylesheets="@style.css">
+
+    <!-- Header -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT"
+              style="-fx-background-color:#0078D7;-fx-padding:12;">
+            <Label text="📦 Your Orders"
+                   style="-fx-text-fill:white;-fx-font-size:20px;-fx-font-weight:bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="🏠 Back to Shop" onAction="#onBack"/>
+            <Button text="📦 View Items" onAction="#onViewItems" />
+
+            <Button text="Logout" onAction="#onLogout"/>
+        </HBox>
+    </top>
+
+    <!-- Orders table -->
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding:20;">
+            <TableView fx:id="orderTable" prefWidth="750" prefHeight="500">
+                <columns>
+                    <TableColumn fx:id="colId" text="Order ID" prefWidth="100"/>
+                    <TableColumn fx:id="colTotal" text="Total ($)" prefWidth="150"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
+                    <TableColumn fx:id="colDate" text="Created At" prefWidth="200"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="📦 View Items" onAction="#onViewItems" />
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

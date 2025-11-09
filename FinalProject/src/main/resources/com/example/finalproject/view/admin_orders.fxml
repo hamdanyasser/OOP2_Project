@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalproject.controller.AdminOrdersController"
+            prefWidth="900" prefHeight="600"
+            stylesheets="@style.css">
+
+    <!-- 🔹 Top bar -->
+    <top>
+        <HBox spacing="20" style="-fx-background-color:#0078D7;-fx-padding:12;">
+            <Label text="📦 Orders Management"
+                   style="-fx-text-fill:white;-fx-font-size:20;-fx-font-weight:bold;" />
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="⬅ Back to Products" onAction="#goProducts"
+                    style="-fx-background-color:white;-fx-text-fill:#0078D7;-fx-font-weight:bold;"/>
+            <Button text="Logout" onAction="#logout"
+                    style="-fx-background-color:#d9534f;-fx-text-fill:white;-fx-font-weight:bold;"/>
+        </HBox>
+    </top>
+
+    <!-- 🔹 Center table -->
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding:20;">
+            <!-- 🔍 Search and Filter Bar -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="🔍 Search:"/>
+                <TextField fx:id="searchField" promptText="Enter Order ID or User ID" prefWidth="180"/>
+                <Label text="Filter by Status:"/>
+                <ComboBox fx:id="statusFilter" prefWidth="150"/>
+                <Button text="Apply Filter" onAction="#onApplyFilter"/>
+                <Button text="Reset" onAction="#onResetFilter"/>
+            </HBox>
+
+            <TableView fx:id="orderTable" prefWidth="850" prefHeight="450">
+                <columns>
+                    <TableColumn fx:id="colId" text="Order ID" prefWidth="80"/>
+                    <TableColumn fx:id="colUser" text="User ID" prefWidth="100"/>
+                    <TableColumn fx:id="colTotal" text="Total ($)" prefWidth="150"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
+                    <TableColumn fx:id="colDate" text="Created At" prefWidth="250"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="✅ Mark Delivered" onAction="#onDeliver" />
+                <Button text="🗑 Delete Order" onAction="#onDelete" />
+                <Button text="📊 View Reports" onAction="#onViewReports"/>
+                <Button text="⬇ Export CSV" onAction="#onExportCSV" />
+                <Button text="📄 Download Invoice" onAction="#onDownloadInvoice"/>
+                <Button text="🧾 Export PDF" onAction="#onExportPDF" />
+                <Button text="📦 View Items" onAction="#onViewItems" />
+            </HBox>
+        </VBox>
+
+    </center>
+
+</BorderPane>

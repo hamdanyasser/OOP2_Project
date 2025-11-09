@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.example.finalproject.controller.RegisterController"
+           prefWidth="800" prefHeight="600"
+           stylesheets="@style.css">
+
+    <VBox alignment="CENTER" spacing="20">
+        <VBox alignment="CENTER" spacing="12" maxWidth="400" styleClass="auth-card">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+
+            <Label text="🧾 Register" styleClass="title-label"/>
+
+            <TextField fx:id="nameField" promptText="Full Name" styleClass="text-field"/>
+            <TextField fx:id="emailField" promptText="Email" styleClass="text-field"/>
+            <PasswordField fx:id="passwordField" promptText="Password" styleClass="password-field"/>
+            <TextField fx:id="addressField" promptText="Address" styleClass="text-field"/>
+
+            <Button text="Register" onAction="#onRegister" prefWidth="200" />
+            <Hyperlink text="Back to Login" onAction="#goLogin"/>
+            <Label fx:id="msgLabel" styleClass="error-label"/>
+        </VBox>
+    </VBox>
+
+</StackPane>

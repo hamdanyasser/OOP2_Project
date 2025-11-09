@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalproject.controller.CustomerHomeController"
+            prefWidth="900" prefHeight="600"
+            stylesheets="@style.css">
+
+    <!-- 🏠 Top Bar -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-background-color: #0078D7; -fx-padding: 12;">
+            <Label text="🛍️ ShopEase" style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;" />
+            <Pane HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="searchField" promptText="Search products..." prefWidth="200"/>
+            <ChoiceBox fx:id="categoryChoice" prefWidth="150"/>
+            <Button text="Reset" onAction="#onReset"/>
+            <Button text="🛒 View Cart" onAction="#onViewCart" />
+            <Button text="❤️ My Wishlist" onAction="#onWishlist"/>
+
+            <Button text="📜 My Orders" onAction="#onViewOrders" />
+            <Button text="Profile Setting" onAction="#onProfile" />
+            <Button text="Logout" onAction="#onLogout" />
+        </HBox>
+    </top>
+
+    <!-- 🧱 Product Grid -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <FlowPane fx:id="productGrid"
+                      hgap="20" vgap="20"
+                      alignment="CENTER"
+                      style="-fx-background-color: #f8f8f8;">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+            </FlowPane>
+
+        </ScrollPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10;">
+            <Button text="⏮ Prev" fx:id="prevBtn" onAction="#onPrevPage"/>
+            <Label fx:id="pageLabel" text="Page 1"/>
+            <Button text="Next ⏭" fx:id="nextBtn" onAction="#onNextPage"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

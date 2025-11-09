@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.finalproject.controller.ProductFormController"
+      spacing="10" alignment="CENTER"
+      prefWidth="420" prefHeight="550"
+      stylesheets="@style.css">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label fx:id="formTitle" text="Add Product" styleClass="title-label"/>
+
+    <ImageView fx:id="imageView" fitWidth="150" fitHeight="150" preserveRatio="true" />
+    <Button text="📂 Choose Image" onAction="#onChooseImage" />
+
+    <TextField fx:id="nameField" promptText="Product Name" styleClass="text-field"/>
+    <TextField fx:id="categoryField" promptText="Category" styleClass="text-field"/>
+    <TextField fx:id="priceField" promptText="Price" styleClass="text-field"/>
+    <TextArea fx:id="descriptionArea" promptText="Description" prefHeight="80" wrapText="true" styleClass="text-field"/>
+    <TextField fx:id="stockField" promptText="Stock Quantity" styleClass="text-field"/>
+
+    <Button text="Save Product" onAction="#onSave" prefWidth="200" />
+    <Button text="Cancel" onAction="#onCancel" prefWidth="200"/>
+
+    <Label fx:id="msgLabel" styleClass="error-label"/>
+</VBox>

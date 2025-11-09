@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalproject.controller.AdminReportsController"
+            prefWidth="950" prefHeight="600"
+            stylesheets="@style.css">
+
+    <!-- 🔹 Header -->
+    <top>
+        <HBox spacing="20" style="-fx-background-color:#0078D7;-fx-padding:12;">
+            <Label text="📊 Sales Dashboard"
+                   style="-fx-text-fill:white;-fx-font-size:20;-fx-font-weight:bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="⬅ Back to Orders" onAction="#onBack"
+                    style="-fx-background-color:white;-fx-text-fill:#0078D7;-fx-font-weight:bold;"/>
+            <Button text="Logout" onAction="#onLogout"
+                    style="-fx-background-color:#d9534f;-fx-text-fill:white;-fx-font-weight:bold;"/>
+        </HBox>
+    </top>
+
+    <!-- 🔹 Center -->
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding:20;">
+
+            <Label fx:id="totalRevenueLabel"
+                   style="-fx-font-size:18;-fx-font-weight:bold;-fx-text-fill:#333;"/>
+
+            <!-- Daily Sales Chart -->
+            <BarChart fx:id="salesChart" prefHeight="250" prefWidth="800">
+                <xAxis>
+                    <CategoryAxis label="Date"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Revenue ($)"/>
+                </yAxis>
+            </BarChart>
+
+            <!-- Top Products Table -->
+            <Label text="🥇 Top Selling Products"
+                   style="-fx-font-size:16;-fx-font-weight:bold;-fx-padding:10 0 0 0;"/>
+
+            <TableView fx:id="topProductsTable" prefWidth="800" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colProduct" text="Product" prefWidth="300"/>
+                    <TableColumn fx:id="colQty" text="Quantity Sold" prefWidth="200"/>
+                    <TableColumn fx:id="colRevenue" text="Revenue ($)" prefWidth="200"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="🔄 Refresh" onAction="#onRefresh"/>
+                <Button text="💾 Export CSV" onAction="#onExportCSV"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

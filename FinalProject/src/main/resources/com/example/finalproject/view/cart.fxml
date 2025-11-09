@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalproject.controller.CartController"
+            prefWidth="900" prefHeight="600"
+            stylesheets="@style.css">
+
+    <!-- 🏠 Header -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT"
+              style="-fx-background-color:#0078D7;-fx-padding:12;">
+            <Label text="🛒 Your Cart"
+                   style="-fx-text-fill:white;-fx-font-size:20px;-fx-font-weight:bold;"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="🏠 Back to Shop" onAction="#onBackToShop"/>
+            <Button text="Logout" onAction="#onLogout"/>
+        </HBox>
+    </top>
+
+    <!-- 📋 Cart Table -->
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding:20;">
+            <TableView fx:id="cartTable" prefWidth="700" prefHeight="400">
+                <columns>
+                    <TableColumn fx:id="colName" text="Product" prefWidth="250"/>
+                    <TableColumn fx:id="colPrice" text="Price ($)" prefWidth="150"/>
+                    <TableColumn fx:id="colQty" text="Quantity" prefWidth="120"/>
+                    <TableColumn fx:id="colTotal" text="Subtotal ($)" prefWidth="150"/>
+                </columns>
+            </TableView>
+
+            <HBox spacing="20" alignment="CENTER_RIGHT" prefWidth="700">
+                <Label text="Total:" style="-fx-font-weight:bold; -fx-font-size:16;"/>
+                <Label fx:id="totalLabel" style="-fx-font-size:16; -fx-text-fill:#0078D7;"/>
+            </HBox>
+
+            <HBox spacing="20" alignment="CENTER">
+                <Button text="🗑 Remove Selected" onAction="#onRemove"/>
+                <Button text="✅ Checkout" onAction="#onCheckout"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

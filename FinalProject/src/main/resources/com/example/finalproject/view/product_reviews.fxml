@@ -1,0 +1,17 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Label?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.finalproject.controller.ProductReviewsController"
+      spacing="15" alignment="CENTER" style="-fx-padding:20;">
+    <Label fx:id="productTitle" style="-fx-font-size:18;-fx-font-weight:bold;" />
+    <TableView fx:id="reviewTable" prefWidth="600" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colUser" text="User" prefWidth="150"/>
+            <TableColumn fx:id="colRating" text="Rating" prefWidth="100"/>
+            <TableColumn fx:id="colComment" text="Comment" prefWidth="250"/>
+            <TableColumn fx:id="colDate" text="Date" prefWidth="150"/>
+        </columns>
+    </TableView>
+</VBox>

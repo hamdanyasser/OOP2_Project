@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.finalproject.controller.AdminReviewsController"
+            prefWidth="900" prefHeight="600"
+            stylesheets="@style.css">
+
+    <top>
+        <HBox spacing="15" style="-fx-background-color:#0078D7;-fx-padding:12;">
+            <Label text="⭐ Manage Reviews"
+                   style="-fx-text-fill:white;-fx-font-size:20;-fx-font-weight:bold;" />
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="⬅ Back" onAction="#onBack"
+                    style="-fx-background-color:white;-fx-text-fill:#0078D7;-fx-font-weight:bold;"/>
+            <Button text="Logout" onAction="#onLogout"
+                    style="-fx-background-color:#d9534f;-fx-text-fill:white;-fx-font-weight:bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding:20;">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Search:"/>
+                <TextField fx:id="searchField" promptText="Type username, product, or comment..." prefWidth="300"/>
+            </HBox>
+
+            <TableView fx:id="reviewTable" prefWidth="850" prefHeight="450">
+                <columns>
+                    <TableColumn fx:id="colUser" text="User" prefWidth="150"/>
+                    <TableColumn fx:id="colProduct" text="Product" prefWidth="200"/>
+                    <TableColumn fx:id="colRating" text="Rating" prefWidth="100"/>
+                    <TableColumn fx:id="colComment" text="Comment" prefWidth="250"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="150"/>
+                </columns>
+            </TableView>
+
+            <Button text="🗑 Delete Selected" onAction="#onDelete"/>
+        </VBox>
+    </center>
+
+</BorderPane>
