@@ -3,46 +3,109 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.geometry.Pos?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.finalproject.controller.CartController"
-            prefWidth="900" prefHeight="600"
+            prefWidth="1100" prefHeight="700"
             stylesheets="@style.css">
 
-    <!-- 🏠 Header -->
+    <!-- 🎨 Modern Navigation Bar -->
     <top>
-        <HBox spacing="20" alignment="CENTER_LEFT"
-              style="-fx-background-color:#0078D7;-fx-padding:12;">
-            <Label text="🛒 Your Cart"
-                   style="-fx-text-fill:white;-fx-font-size:20px;-fx-font-weight:bold;"/>
-            <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="🏠 Back to Shop" onAction="#onBackToShop"/>
-            <Button text="Logout" onAction="#onLogout"/>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="navbar">
+            <!-- Back Button & Title -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="🛒" style="-fx-font-size: 28px;"/>
+                <Label text="Your Shopping Cart" styleClass="navbar-title"/>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Navigation Buttons -->
+            <Button text="🏠 Continue Shopping"
+                   onAction="#onBackToShop"
+                   style="-fx-background-color: rgba(255,255,255,0.2);"/>
+
+            <Button text="🚪 Logout"
+                   onAction="#onLogout"
+                   style="-fx-background-color: rgba(245,101,101,0.3); -fx-text-fill: white;"/>
         </HBox>
     </top>
 
-    <!-- 📋 Cart Table -->
+    <!-- 🛍️ Cart Content -->
     <center>
-        <VBox spacing="15" alignment="CENTER" style="-fx-padding:20;">
-            <TableView fx:id="cartTable" prefWidth="700" prefHeight="400">
-                <columns>
-                    <TableColumn fx:id="colName" text="Product" prefWidth="250"/>
-                    <TableColumn fx:id="colPrice" text="Price ($)" prefWidth="150"/>
-                    <TableColumn fx:id="colQty" text="Quantity" prefWidth="120"/>
-                    <TableColumn fx:id="colTotal" text="Subtotal ($)" prefWidth="150"/>
-                </columns>
-            </TableView>
+        <VBox spacing="24" styleClass="admin-container" style="-fx-padding: 32;">
 
-            <HBox spacing="20" alignment="CENTER_RIGHT" prefWidth="700">
-                <Label text="Total:" style="-fx-font-weight:bold; -fx-font-size:16;"/>
-                <Label fx:id="totalLabel" style="-fx-font-size:16; -fx-text-fill:#0078D7;"/>
+            <!-- Cart Items Table -->
+            <VBox spacing="16" styleClass="white-card">
+                <Label text="Cart Items"
+                       styleClass="section-title"
+                       style="-fx-font-size: 20px;"/>
+
+                <TableView fx:id="cartTable" prefHeight="400" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="colName" text="Product" prefWidth="300"/>
+                        <TableColumn fx:id="colPrice" text="Price" prefWidth="150"/>
+                        <TableColumn fx:id="colQty" text="Quantity" prefWidth="150"/>
+                        <TableColumn fx:id="colTotal" text="Subtotal" prefWidth="150"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Cart Summary Section -->
+            <HBox spacing="24" alignment="CENTER">
+                <!-- Left: Actions -->
+                <VBox spacing="12" HBox.hgrow="ALWAYS">
+                    <Button text="🗑️ Remove Selected"
+                           onAction="#onRemove"
+                           styleClass="button-danger"
+                           prefWidth="200"
+                           prefHeight="45"/>
+
+                    <Label text="Select an item to remove"
+                           style="-fx-font-size: 12px; -fx-text-fill: #a0aec0;"/>
+                </VBox>
+
+                <!-- Right: Total & Checkout -->
+                <VBox spacing="16" styleClass="white-card" style="-fx-padding: 32; -fx-min-width: 350;">
+                    <Label text="Order Summary"
+                           styleClass="section-title"
+                           style="-fx-font-size: 18px;"/>
+
+                    <Separator/>
+
+                    <!-- Subtotal -->
+                    <HBox spacing="10" alignment="CENTER">
+                        <Label text="Subtotal:"
+                               style="-fx-font-size: 15px; -fx-text-fill: #4a5568;"
+                               HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="totalLabel"
+                               text="$0.00"
+                               styleClass="price-label"
+                               style="-fx-font-size: 24px;"/>
+                    </HBox>
+
+                    <Label text="Shipping and taxes calculated at checkout"
+                           style="-fx-font-size: 12px; -fx-text-fill: #a0aec0; -fx-text-alignment: center; -fx-wrap-text: true;"/>
+
+                    <Separator/>
+
+                    <!-- Checkout Button -->
+                    <Button text="✅ Proceed to Checkout"
+                           onAction="#onCheckout"
+                           styleClass="button-success"
+                           prefHeight="50"
+                           style="-fx-font-size: 16px;"/>
+
+                    <!-- Security Badge -->
+                    <HBox alignment="CENTER" spacing="6" style="-fx-padding: 8 0 0 0;">
+                        <Label text="🔒" style="-fx-font-size: 14px;"/>
+                        <Label text="Secure Checkout"
+                               style="-fx-font-size: 12px; -fx-text-fill: #48bb78; -fx-font-weight: 600;"/>
+                    </HBox>
+                </VBox>
             </HBox>
 
-            <HBox spacing="20" alignment="CENTER">
-                <Button text="🗑 Remove Selected" onAction="#onRemove"/>
-                <Button text="✅ Checkout" onAction="#onCheckout"/>
-            </HBox>
         </VBox>
     </center>
+
 </BorderPane>

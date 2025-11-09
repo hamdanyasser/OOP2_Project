@@ -6,20 +6,58 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.finalproject.controller.WishlistController"
-            prefWidth="800" prefHeight="600">
+            prefWidth="1100" prefHeight="700"
+            stylesheets="@style.css">
 
+    <!-- Modern Navigation Bar -->
     <top>
-        <HBox spacing="10" style="-fx-background-color:#0078D7; -fx-padding:10;">
-            <Label text="❤️ My Wishlist" style="-fx-font-size:20px; -fx-text-fill:white; -fx-font-weight:bold;"/>
-            <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="⬅ Back" onAction="#onBack"/>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="navbar">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="❤️" style="-fx-font-size: 28px;"/>
+                <Label text="My Wishlist" styleClass="navbar-title"/>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button text="🏠 Back to Shop"
+                   onAction="#onBack"
+                   style="-fx-background-color: rgba(255,255,255,0.2);"/>
         </HBox>
     </top>
 
+    <!-- Wishlist Content -->
     <center>
-        <ScrollPane fitToWidth="true">
-            <FlowPane fx:id="wishlistGrid" hgap="15" vgap="15"
-                      alignment="CENTER" style="-fx-padding:15;"/>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane" style="-fx-background-color: transparent;">
+            <VBox spacing="24" styleClass="product-grid">
+
+                <!-- Header -->
+                <VBox spacing="12" alignment="CENTER">
+                    <Label text="Your Saved Items"
+                           style="-fx-font-size: 28px; -fx-font-weight: 700; -fx-text-fill: #2d3748;"/>
+                    <Label text="Items you've added to your wishlist"
+                           style="-fx-font-size: 15px; -fx-text-fill: #718096;"/>
+                </VBox>
+
+                <!-- Wishlist Grid -->
+                <FlowPane fx:id="wishlistGrid"
+                         hgap="24" vgap="24"
+                         alignment="CENTER">
+                    <!-- Products will be dynamically added here -->
+                </FlowPane>
+
+                <!-- Empty State -->
+                <VBox fx:id="emptyState" alignment="CENTER" spacing="16"
+                      visible="false" managed="false"
+                      style="-fx-padding: 60 0 60 0;">
+                    <Label text="❤️" style="-fx-font-size: 72px; -fx-opacity: 0.3;"/>
+                    <Label text="Your wishlist is empty"
+                           style="-fx-font-size: 24px; -fx-font-weight: 600; -fx-text-fill: #4a5568;"/>
+                    <Label text="Save items you love for later"
+                           style="-fx-font-size: 14px; -fx-text-fill: #a0aec0;"/>
+                </VBox>
+
+            </VBox>
         </ScrollPane>
     </center>
+
 </BorderPane>

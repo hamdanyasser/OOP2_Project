@@ -6,38 +6,70 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.finalproject.controller.OrderHistoryController"
-            prefWidth="900" prefHeight="600"
+            prefWidth="1100" prefHeight="700"
             stylesheets="@style.css">
 
-    <!-- Header -->
+    <!-- Modern Navigation Bar -->
     <top>
-        <HBox spacing="20" alignment="CENTER_LEFT"
-              style="-fx-background-color:#0078D7;-fx-padding:12;">
-            <Label text="📦 Your Orders"
-                   style="-fx-text-fill:white;-fx-font-size:20px;-fx-font-weight:bold;"/>
-            <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="🏠 Back to Shop" onAction="#onBack"/>
-            <Button text="📦 View Items" onAction="#onViewItems" />
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="navbar">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="📦" style="-fx-font-size: 28px;"/>
+                <Label text="Order History" styleClass="navbar-title"/>
+            </HBox>
 
-            <Button text="Logout" onAction="#onLogout"/>
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button text="🏠 Back to Shop"
+                   onAction="#onBack"
+                   style="-fx-background-color: rgba(255,255,255,0.2);"/>
+
+            <Button text="🚪 Logout"
+                   onAction="#onLogout"
+                   style="-fx-background-color: rgba(245,101,101,0.3); -fx-text-fill: white;"/>
         </HBox>
     </top>
 
-    <!-- Orders table -->
+    <!-- Orders Content -->
     <center>
-        <VBox spacing="15" alignment="CENTER" style="-fx-padding:20;">
-            <TableView fx:id="orderTable" prefWidth="750" prefHeight="500">
-                <columns>
-                    <TableColumn fx:id="colId" text="Order ID" prefWidth="100"/>
-                    <TableColumn fx:id="colTotal" text="Total ($)" prefWidth="150"/>
-                    <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
-                    <TableColumn fx:id="colDate" text="Created At" prefWidth="200"/>
-                </columns>
-            </TableView>
+        <VBox spacing="24" styleClass="admin-container" style="-fx-padding: 32;">
 
-            <HBox spacing="15" alignment="CENTER">
-                <Button text="📦 View Items" onAction="#onViewItems" />
-            </HBox>
+            <!-- Header Section -->
+            <VBox spacing="12" alignment="CENTER">
+                <Label text="Your Orders"
+                       style="-fx-font-size: 28px; -fx-font-weight: 700; -fx-text-fill: #2d3748;"/>
+                <Label text="Track and manage your order history"
+                       style="-fx-font-size: 15px; -fx-text-fill: #718096;"/>
+            </VBox>
+
+            <!-- Orders Table Card -->
+            <VBox spacing="16" styleClass="white-card">
+                <Label text="Recent Orders"
+                       styleClass="section-title"
+                       style="-fx-font-size: 20px;"/>
+
+                <TableView fx:id="orderTable" prefHeight="450" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="colId" text="Order #" prefWidth="120"/>
+                        <TableColumn fx:id="colTotal" text="Total Amount" prefWidth="150"/>
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
+                        <TableColumn fx:id="colDate" text="Order Date" prefWidth="250"/>
+                    </columns>
+                </TableView>
+
+                <!-- Actions -->
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Button text="📦 View Order Details"
+                           onAction="#onViewItems"
+                           styleClass="button-secondary"
+                           prefHeight="45"/>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Label text="Select an order to view details"
+                           style="-fx-font-size: 12px; -fx-text-fill: #a0aec0;"/>
+                </HBox>
+            </VBox>
+
         </VBox>
     </center>
 

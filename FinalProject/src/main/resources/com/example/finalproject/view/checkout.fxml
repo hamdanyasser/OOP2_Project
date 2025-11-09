@@ -4,38 +4,138 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
+<BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.finalproject.controller.CheckoutController"
-            prefWidth="800" prefHeight="600"
+            prefWidth="1000" prefHeight="700"
             stylesheets="@style.css">
 
-    <VBox alignment="CENTER" spacing="25"
-          AnchorPane.topAnchor="20"
-          AnchorPane.bottomAnchor="20"
-          AnchorPane.leftAnchor="20"
-          AnchorPane.rightAnchor="20">
+    <!-- 🎨 Modern Navigation Bar -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="navbar">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label text="✅" style="-fx-font-size: 28px;"/>
+                <Label text="Checkout" styleClass="navbar-title"/>
+            </HBox>
 
-        <!-- Title -->
-        <Label text="🧾 Checkout" styleClass="title-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
 
-        <!-- Order Summary Box -->
-        <VBox spacing="15" styleClass="auth-card" maxWidth="400">
-            <padding>
-                <Insets top="20" right="20" bottom="20" left="20"/>
-            </padding>
+            <Button text="🏠 Back to Shop"
+                   onAction="#onBack"
+                   style="-fx-background-color: rgba(255,255,255,0.2);"/>
+        </HBox>
+    </top>
 
-            <Label text="Review Your Order" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <!-- Checkout Content -->
+    <center>
+        <VBox alignment="CENTER" spacing="32" styleClass="admin-container" style="-fx-padding: 40;">
 
-            <Label fx:id="totalLabel" text="Total: $0.00" style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+            <!-- Progress Indicator -->
+            <HBox alignment="CENTER" spacing="20">
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="🛒" style="-fx-font-size: 32px;"/>
+                    <Label text="Cart" style="-fx-font-size: 12px; -fx-text-fill: #a0aec0;"/>
+                </VBox>
+                <Separator prefWidth="60"/>
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="✅" style="-fx-font-size: 32px;"/>
+                    <Label text="Review" style="-fx-font-size: 12px; -fx-font-weight: 600; -fx-text-fill: #667eea;"/>
+                </VBox>
+                <Separator prefWidth="60"/>
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="🎉" style="-fx-font-size: 32px; -fx-opacity: 0.3;"/>
+                    <Label text="Complete" style="-fx-font-size: 12px; -fx-text-fill: #a0aec0;"/>
+                </VBox>
+            </HBox>
 
-            <Button text="Confirm Order ✅"
-                    onAction="#onConfirmOrder"
-                    prefWidth="200"/>
+            <!-- Order Summary Card -->
+            <VBox spacing="24" styleClass="white-card" maxWidth="600" style="-fx-padding: 40;">
 
-            <Button text="Back to Shop"
-                    onAction="#onBack"
-                    prefWidth="200"
-                    style="-fx-background-color: gray; -fx-text-fill: white;"/>
+                <!-- Header -->
+                <VBox spacing="8" alignment="CENTER">
+                    <Label text="Order Summary"
+                           styleClass="section-title"
+                           style="-fx-font-size: 24px;"/>
+                    <Label text="Review your order before confirming"
+                           style="-fx-font-size: 14px; -fx-text-fill: #718096;"/>
+                </VBox>
+
+                <Separator/>
+
+                <!-- Order Details -->
+                <VBox spacing="16">
+                    <!-- Total Amount -->
+                    <HBox alignment="CENTER" spacing="10">
+                        <Label text="Order Total:"
+                               style="-fx-font-size: 18px; -fx-font-weight: 600; -fx-text-fill: #4a5568;"
+                               HBox.hgrow="ALWAYS"/>
+                        <Label fx:id="totalLabel"
+                               text="$0.00"
+                               styleClass="price-label"
+                               style="-fx-font-size: 32px;"/>
+                    </HBox>
+
+                    <!-- Payment Method -->
+                    <VBox spacing="8">
+                        <Label text="Payment Method"
+                               style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #4a5568;"/>
+                        <HBox spacing="10" alignment="CENTER_LEFT"
+                              style="-fx-background-color: #f7fafc; -fx-padding: 12; -fx-background-radius: 8;">
+                            <Label text="💳" style="-fx-font-size: 20px;"/>
+                            <Label text="Cash on Delivery"
+                                   style="-fx-font-size: 14px; -fx-text-fill: #2d3748;"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Shipping Info -->
+                    <VBox spacing="8">
+                        <Label text="Shipping Information"
+                               style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #4a5568;"/>
+                        <HBox spacing="10" alignment="CENTER_LEFT"
+                              style="-fx-background-color: #f7fafc; -fx-padding: 12; -fx-background-radius: 8;">
+                            <Label text="📦" style="-fx-font-size: 20px;"/>
+                            <Label text="Standard Delivery (3-5 business days)"
+                                   style="-fx-font-size: 14px; -fx-text-fill: #2d3748;"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+                <Separator/>
+
+                <!-- Action Buttons -->
+                <VBox spacing="12">
+                    <Button text="🎉 Confirm and Place Order"
+                           onAction="#onConfirmOrder"
+                           styleClass="button-success"
+                           prefHeight="55"
+                           style="-fx-font-size: 16px;"/>
+
+                    <Button text="← Back to Cart"
+                           onAction="#onBack"
+                           styleClass="button-secondary"
+                           prefHeight="45"/>
+
+                    <!-- Terms -->
+                    <Label text="By confirming, you agree to our Terms & Conditions"
+                           style="-fx-font-size: 11px; -fx-text-fill: #a0aec0; -fx-text-alignment: center; -fx-wrap-text: true;"/>
+                </VBox>
+
+                <!-- Security Badge -->
+                <HBox alignment="CENTER" spacing="20" style="-fx-padding: 12 0 0 0;">
+                    <HBox spacing="6" alignment="CENTER">
+                        <Label text="🔒" style="-fx-font-size: 16px;"/>
+                        <Label text="Secure Payment"
+                               style="-fx-font-size: 12px; -fx-text-fill: #48bb78; -fx-font-weight: 600;"/>
+                    </HBox>
+                    <HBox spacing="6" alignment="CENTER">
+                        <Label text="✅" style="-fx-font-size: 16px;"/>
+                        <Label text="Easy Returns"
+                               style="-fx-font-size: 12px; -fx-text-fill: #667eea; -fx-font-weight: 600;"/>
+                    </HBox>
+                </HBox>
+
+            </VBox>
+
         </VBox>
-    </VBox>
-</AnchorPane>
+    </center>
+
+</BorderPane>
